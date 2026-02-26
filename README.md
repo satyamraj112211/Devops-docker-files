@@ -1,85 +1,104 @@
-# INT332 – DevOps Virtualization and Configuration Management 🚀
+🚀 INT332 – DevOps: Virtualization & Configuration Management
 
-This GitHub repository documents my **unit-wise learning, hands-on practical work, and observations**
-from the course **INT332: DevOps Virtualization and Configuration Management**.
+This repository captures my structured learning journey for the subject
+INT332 – DevOps Virtualization and Configuration Management.
 
-The purpose of this repository is to **systematically track DevOps concepts and tools**
-through practical execution, screenshots, notes, and documentation,
-while following an organized **unit-wise branch structure**.
+It includes practical implementations, screenshots, configurations, and detailed notes organized in a systematic way to reflect real hands-on experience with DevOps tools and workflows.
 
----
+The repository follows a unit-wise branching model to maintain clarity and modular learning.
 
-## 🎯 Learning Outcomes
-Through this repository, I aim to:
+🎯 Objectives of This Repository
 
-- Understand **DevOps infrastructure fundamentals** such as containerization, runtimes,
-  process isolation, namespaces, and resource management
-- Build, manage, and distribute **Docker images** using registries and storage mechanisms
-- Develop **microservices-based applications** using Docker Compose
-- Automate builds using **Maven**, including dependency management and Docker integration
-- Implement **Continuous Integration (CI)** using GitHub Actions
-- Design and deploy **end-to-end CI/CD pipelines** using Jenkins
+This repository helps me to:
 
----
+Gain practical understanding of DevOps fundamentals and container ecosystems
 
-## 🗂 Repository Organization (Unit-wise Branches)
+Work with Docker architecture, container runtime, isolation mechanisms, and resource allocation
 
-This repository follows a **branch-per-unit strategy**.
-Each unit is maintained in its own branch to keep the learning modular, structured, and easy to navigate.
+Create and manage custom Docker images and push them to registries
 
-| Unit | Topics Focus | Branch Name |
-|----|--------------|-------------|
-| Unit I | DevOps & Docker Infrastructure Basics | `unit-1-devops-infrastructure` |
-| Unit II | Image Building & Container Management | `unit-2-Image-Building-Container-Management` |
-| Unit III | Microservices & Docker Compose | `unit-3-docker-compose` |
-| Unit IV | Maven Build Automation | `unit-4-maven` |
-| Unit V | Continuous Integration with GitHub Actions | `unit-5-github-actions` |
-| Unit VI | CI/CD with Jenkins | `unit-6-jenkins` |
+Build and run multi-container applications using Docker Compose
 
----
+Automate application builds using Maven
 
-## 📂 What Each Unit Branch Contains
-Each unit branch may include:
+Implement Continuous Integration (CI) workflows using GitHub Actions
 
-- 📄 Task descriptions and notes (Markdown format)
-- 📸 Screenshots as proof of execution
-- 🧪 Practical experiments and exercises
-- 📝 Observations and learnings
-- 📁 Documentation files (DOC/PDF where applicable)
-- 📌 Important commands and configurations
+Understand and configure CI/CD pipelines using Jenkins
 
-The internal structure may evolve as learning progresses.
+🗃 Repository Structure – Unit Based Branching
 
----
+To keep everything organized, each academic unit is maintained in a separate branch.
 
-## 🔄 Update Methodology
-- Content is updated **day-wise or interval-wise**
-- Each update corresponds to:
-  - A class practical
-  - A lab experiment
-  - A completed task or concept
-- Commits follow **clear and meaningful naming conventions**
+Unit	Area of Study	Branch
+Unit 1	DevOps Basics & Docker Foundations	unit-1-devops-infra
+Unit 2	Docker Image Creation & Container Operations	unit-2-container-management
+Unit 3	Docker Compose & Microservices	unit-3-microservices-compose
+Unit 4	Maven & Build Automation	unit-4-build-automation
+Unit 5	CI with GitHub Actions	unit-5-ci-github-actions
+Unit 6	CI/CD using Jenkins	unit-6-jenkins-pipeline
 
----
+Each branch contains content relevant only to its respective unit.
 
-## 🎓 Purpose of This Repository
-This repository is maintained to:
-- Serve as a **personal DevOps learning log**
-- Support **academic practicals and viva preparation**
-- Enable **quick revision** of concepts and commands
-- Act as a **showcase of hands-on DevOps skills** on GitHub
+📁 Contents Inside Each Unit Branch
 
----
+Depending on the unit, you may find:
 
-## 🛠 Tools & Technologies Covered
-- Docker & Docker Hub  
-- Docker Compose  
-- Maven  
-- Git & GitHub  
-- GitHub Actions  
-- Jenkins  
-- Linux-based environments  
+📝 Concept explanations and markdown documentation
 
----
+📷 Execution screenshots
 
-📌 *This repository will be continuously updated as new concepts and practicals are completed.*
+🔧 Configuration files (Dockerfile, YAML, etc.)
+
+🧪 Lab experiments and task solutions
+
+📌 Important commands and syntax references
+
+📄 Supporting documents (PDF/DOC if required)
+
+Structure may expand as more practical work is completed.
+
+🔄 Contribution & Update Pattern
+
+Repository is updated regularly after practical sessions
+
+Every commit represents:
+
+A completed experiment
+
+A new tool implementation
+
+A configuration setup
+
+Commit messages are written clearly to reflect the task performed
+
+🎓 Why This Repository?
+
+This repository serves as:
+
+📚 A structured DevOps learning journal
+
+🧪 A practical record for labs and academic evaluation
+
+🔁 A quick revision resource before exams or viva
+
+💼 A demonstration of real DevOps hands-on experience
+
+🛠 Technologies & Tools Used
+
+Docker & Containerization
+
+Docker Hub
+
+Docker Compose
+
+Maven
+
+Git & GitHub
+
+GitHub Actions
+
+Jenkins
+
+Linux Environment
+
+✨ This repository will continue evolving as I explore more advanced DevOps practices and pipeline implementations.
