@@ -1,0 +1,12 @@
+Important Docker Compose Commands
+Command	                          Description
+docker compose up	                Start services
+docker compose up -d	            Start in background
+docker compose stop	              Stop services
+docker compose start	            Start stopped services
+docker compose down	              Stop and remove containers
+docker compose build	            Build images
+docker compose ps	                Show running containers
+docker compose logs	              Show logs
+docker compose restart	          Restart services
+docker compose exec web bash	    Open shell inside container

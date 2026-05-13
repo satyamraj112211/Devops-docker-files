@@ -1,0 +1,40 @@
+1. Download Apache Maven
+Open:
+https://maven.apache.org/download.cgi
+Download: apache-maven-3.9.x-bin.zip
+
+2. Extract Maven
+Extract to: C:\apache-maven-3.9.x
+Folder structure includes: bin, boot, conf, lib, LICENSE, NOTICE
+
+3. Set Environment Variables
+Open: System Properties  Advanced  Environment Variables
+
+Add M2_HOME:
+Variable name: M2_HOME
+Value: C:\apache-maven-
+3.9.x
+
+Add MAVEN_HOME:
+Variable name: MAVEN_HOME
+Value: C:\apache-maven-3.9.x
+
+4. Add Maven to
+PATH Add to PATH:
+C:\apache-maven-3.9.x\bin
+
+5. Verify
+Installation Run in
+CMD:
+
+mvn -version
+
+Expected output:
+Apache Maven 3.9.x
+Java version: 17.x
+
+Troubleshooting:
+If mvn not recognized:
+- PATH incorrect
+- Restart terminal
+- Ensure mvn.cmd is present in bin folder

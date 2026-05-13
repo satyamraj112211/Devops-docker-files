@@ -1,0 +1,37 @@
+Create Maven Project Using Archetype
+
+mvn archetype:generate \
+-DgroupId=com.example \
+-DartifactId=my-app1 \
+-DarchetypeArtifactId=maven-archetype-quickstart \
+-DinteractiveMode=false
+
+Maven command line tool
+mvn compile
+mvn test
+mvn package
+
+archetype:generate  - //Generate a new project from a template
+
+-DgroupId=com.example - //This defines the group name / organization name.
+Example
+com.companyname
+com.google
+org.apache
+
+-DarchetypeArtifactId=maven-archetype-quickstart - //This tells Maven which template to use.
+maven-archetype-quickstart
+simple Java starter project
+App.java
+AppTest.java
+pom.xml
+
+-DinteractiveMode=false   //Maven directly uses given values.
+groupId?
+artifactId?
+version?
+package?
+
+
+
+

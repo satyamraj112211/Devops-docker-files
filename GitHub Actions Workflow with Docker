@@ -1,0 +1,223 @@
+Step 1: Create Project Folder
+
+Open PowerShell / CMD / Git Bash and run:
+
+mkdir my-docker-app
+cd my-docker-app
+
+This creates your project folder and moves inside it.
+
+Step 2: Create Project Files
+
+Inside my-docker-app, create these files:
+
+my-docker-app/
+│
+├── app.py
+├── requirements.txt
+├── Dockerfile
+└── .github/
+    └── workflows/
+        └── ci-cd.yml
+
+Very important: .github is a folder name starting with a dot.
+
+Step 3: Add app.py
+
+Create file: app.py
+
+Paste this code:
+
+from flask import Flask
+
+app = Flask(__name__)
+
+@app.route('/')
+def home():
+    return "Hello from Docker CI/CD!"
+
+if __name__ == "__main__":
+    app.run(host='0.0.0.0', port=5000)
+Explanation
+Flask → Python web framework
+@app.route('/') → homepage route
+return → text shown in browser
+port=5000 → app runs on port 5000
+Step 4: Add requirements.txt
+
+Create file: requirements.txt
+
+Paste:
+
+Flask
+
+This tells Docker / Python which package to install.
+
+Step 5: Add Dockerfile
+
+Create file named exactly:
+
+Dockerfile
+
+No extension
+
+Paste:
+
+FROM python:3.9-slim
+
+WORKDIR /app
+
+COPY . .
+
+RUN pip install -r requirements.txt
+
+CMD ["python", "app.py"]
+Dockerfile Explanation
+Base Image
+FROM python:3.9-slim
+
+Uses lightweight Python image.
+
+Working Directory
+WORKDIR /app
+
+Creates /app folder inside container.
+
+Copy Files
+COPY . .
+
+Copies all project files into container.
+
+Install Dependencies
+RUN pip install -r requirements.txt
+
+Installs Flask.
+
+Start Application
+CMD ["python", "app.py"]
+
+Runs app when container starts.
+
+This line is correct.
+
+Step 6: Create GitHub Workflow File
+
+Create folders:
+
+.github
+workflows
+
+Inside create file:
+
+ci-cd.yml
+
+Full path:
+
+my-docker-app/.github/workflows/ci-cd.yml
+
+Paste:
+
+name: CI-CD Pipeline
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Build Docker Image
+        run: docker build -t my-docker-app .
+
+      - name: List Docker Images
+        run: docker images
+YAML Explanation
+Workflow Name
+name: CI-CD Pipeline
+
+Name shown in GitHub Actions tab.
+
+Trigger Event
+on:
+  push:
+    branches:
+      - main
+
+Runs workflow whenever code is pushed to main.
+
+Job Name
+jobs:
+  build:
+
+Creates one job called build.
+
+Runner
+runs-on: ubuntu-latest
+
+GitHub creates Ubuntu virtual machine.
+
+Checkout Code
+uses: actions/checkout@v4
+
+Downloads repo code into workflow runner.
+
+Build Docker Image
+run: docker build -t my-docker-app .
+
+Builds Docker image.
+
+List Images
+run: docker images
+
+Shows built Docker images.
+
+Step 7: Initialize Git Repository
+
+Run:
+
+git init
+Step 8: Add Files
+git add .
+
+Adds all files.
+
+Step 9: Commit Files
+git commit -m "Added Docker CI/CD workflow"
+Step 10: Create GitHub Repository
+
+Go to GitHub.
+
+Click:
+
+New Repository
+
+Name:
+
+my-docker-app
+
+Click Create Repository
+
+Step 11: Connect Local Project to GitHub
+
+Copy repo URL.
+
+Example:
+
+https://github.com/yourusername/my-docker-app.git
+
+Run:
+
+git remote add origin https://github.com/yourusername/my-docker-app.git
+Step 12: Push Code
+git branch -M main
+git push -u origin main
+
+Step 13: Check GitHub Actions
+Click:
+Actions tab  then CI-CD Pipeline Running automatically.

@@ -1,0 +1,45 @@
+Convert the following Dockerfile into a docker-compose.yml file and run the container.
+
+  FROM httpd:latest
+  COPY html/ /usr/local/apache2/htdocs/
+  EXPOSE 80
+
+Step 1: Create Project Folder
+    mkdir compose1
+    cd compose1
+
+Step 2: Create Docker Compose File
+  notepad docker-compose.yml
+  version: '3.8'
+
+services:
+  web:
+    image: httpd
+    container_name: apache_server
+    ports:
+      - "80:80"
+    volumes:
+      - ./html:/usr/local/apache2/htdocs/
+
+Step 3: Create HTML Folder
+mkdir html
+cd html
+notepad index.html  
+
+<html>
+<head>
+<title>Docker Compose</title>
+</head>
+<body>
+<h1>Welcome to Docker Compose</h1>
+</body>
+</html>
+
+Step 4: Run Docker Compose
+docker compose up -d
+
+Step 5: Check Running Container
+docker compose ps
+
+Step 6: Open Browser
+http://localhost

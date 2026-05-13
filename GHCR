@@ -1,0 +1,49 @@
+❓ Question:
+You are required to build a Docker image for a Python Flask application, push it to GitHub Container Registry (GHCR), 
+and pull/run it on another system.
+
+Step 1: Create Flask Application
+app.py
+from flask import Flask
+app = Flask(__name__)
+
+@app.route('/')
+def home():
+    return "GHCR Flask App Working!"
+
+if __name__ == '__main__':
+    app.run(host='0.0.0.0', port=5000)
+
+Step 2: Create Requirements File
+requirements.txt
+flask
+Step 3: Create Dockerfile
+FROM python:3.10-slim
+
+WORKDIR /app
+
+COPY requirements.txt .
+
+RUN pip install -r requirements.txt
+
+COPY . .
+
+CMD ["python", "app.py"]
+
+Step 4: Build Docker Image
+docker build -t ghcr.io/yourusername/flask-demo:v1 .
+
+Step 5: Authenticate with GHCR
+docker login ghcr.io
+Username → GitHub username
+Password → Personal Access Token (PAT)
+PAT acts like password
+
+Step 6: Push Image
+docker push ghcr.io/yourusername/flask-demo:v1
+
+Step 7: Pull Image (Another System)
+docker pull ghcr.io/yourusername/flask-demo:v1
+
+Step 8: Run Container
+docker run -p 5000:5000 ghcr.io/yourusername/flask-demo:v1

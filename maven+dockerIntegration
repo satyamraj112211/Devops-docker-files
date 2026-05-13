@@ -1,0 +1,156 @@
+This practical demonstrates how to build a Java web application (WAR file) using Maven, containerize it with Docker, 
+and deploy it in a containerized environment to simulate cloud deployment.
+
+Step 1: Create Maven Web Application
+
+Run the following command:
+
+mvn archetype:generate \
+-DgroupId=com.example \
+-DartifactId=maven-docker-webapp \
+-DarchetypeArtifactId=maven-archetype-webapp \
+-DinteractiveMode=false
+
+This creates a basic Maven web application structure.
+
+Step 2: Configure pom.xml
+
+Copy and paste this file:
+
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="
+         http://maven.apache.org/POM/4.0.0
+         http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.example</groupId>
+    <artifactId>maven-docker-webapp</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <packaging>war</packaging>
+
+    <name>Maven Docker Web Application</name>
+
+    <dependencies>
+        <dependency>
+            <groupId>jakarta.servlet</groupId>
+            <artifactId>jakarta.servlet-api</artifactId>
+            <version>6.0.0</version>
+            <scope>provided</scope>
+        </dependency>
+    </dependencies>
+
+</project>
+Step 3: Create Web Page
+
+Create file:
+
+src/main/webapp/index.jsp
+
+<html>
+<head>
+    <title>Java Web App</title>
+</head>
+<body>
+    <h1>Hello from Maven + Docker Deployment</h1>
+    <p>Application deployed successfully!</p>
+</body>
+</html>
+Step 4: Build WAR File Using Maven
+
+Run:
+
+mvn clean package
+
+This creates:
+
+target/maven-docker-webapp-1.0-SNAPSHOT.war
+
+This WAR file is the deployable application.
+
+Step 5: Create Dockerfile
+
+Create file:
+
+Dockerfile
+
+FROM tomcat:10.1-jdk17
+
+COPY target/maven-docker-webapp-1.0-SNAPSHOT.war /usr/local/tomcat/webapps/app.war
+
+EXPOSE 8080
+
+CMD ["catalina.sh", "run"]
+Dockerfile Explanation
+Base Image
+FROM tomcat:10.1-jdk17
+
+Uses Apache Tomcat with JDK 17.
+
+Tomcat is required to run WAR files.
+
+Copy WAR
+COPY target/maven-docker-webapp-1.0-SNAPSHOT.war /usr/local/tomcat/webapps/app.war
+
+Copies the generated WAR file into Tomcat deployment folder.
+
+Expose Port
+EXPOSE 8080
+
+Makes application accessible on port 8080.
+
+Start Server
+CMD ["catalina.sh", "run"]
+
+Starts Tomcat server.
+
+Step 6: Build Docker Image
+
+Run:
+
+docker build -t java-webapp .
+
+This creates a Docker image named:
+
+java-webapp
+Step 7: Run Docker Container
+
+Run:
+
+docker run -d -p 8080:8080 --name java-container java-webapp
+Step 8: Access Application
+
+Open browser:
+
+http://localhost:8080/app
+
+Output:
+
+Hello from Maven + Docker Deployment
+Application deployed successfully!
+Step 9: Verify Running Container
+
+Run:
+
+docker ps
+
+This shows running containers.
+
+Step 10: Stop Container
+docker stop java-container
+Step 11: Remove Container
+docker rm java-container
+Step 12: Simulating Cloud Deployment
+
+This Docker container simulates cloud deployment because:
+
+application is containerized
+portable across systems
+can run on AWS / Azure / GCP
+deployable on Kubernetes
+
+This is how real cloud deployments work.
+
+Real-World DevOps Workflow
+Developer → Maven Build → WAR File → Docker Image → Container → Cloud Deployment
